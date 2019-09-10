@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<center>
+      <h1 id="1">0:0:0</h1>
+<button onclick="p1()"> <img src="depositphotos_179444692-stock-illustration-start-stop-and-pause-buttons1.jpg"></button>
+<button onclick="p2()"> <img src="depositphotos_179444692-stock-illustration-start-stop-and-pause-buttons3.jpg"></button>
+<button onclick="p3()"> <img src="depositphotos_179444692-stock-illustration-start-stop-and-pause-buttons2.jpg"></button>
+</center>
+  <script>
+      minuta=0
+      score=0
+      hours = 0
+      timer=undefined
+      function p1() {
+          clearInterval(timer)
+          timer=setInterval(function  () {
+              score++
+              document.getElementById('1').innerHTML = floor_time()
+          },1000)
+      }
+      function p3() {
+          clearInterval(timer)
+          score=0
+          minuta=0
+          document.getElementById('1').innerHTML = floor_time()
+      }
+      function p2() {
+          clearInterval(timer)
+           timer=setInterval(function  () {
+               document.getElementById('1').innerHTML = floor_time()
+           },0)
+      }
+
+      function floor_time() {
+          if (score == 60){
+              minuta++
+              score = 0
+          }
+          if (minuta == 60){
+              hours++
+              minuta = 0
+          }
+
+          return hours + ":" + minuta + ":" + score
+      }
+  </script>
+</body>
+</html>
